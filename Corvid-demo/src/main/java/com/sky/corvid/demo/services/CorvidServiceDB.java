@@ -18,7 +18,6 @@ public class CorvidServiceDB implements CorvidService {
         this.repo = repo;
     }
 
-
     @Override
     public Corvid createCorvid(Corvid c) {
         return this.repo.save(c);

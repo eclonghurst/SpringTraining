@@ -15,7 +15,7 @@ public class Corvid {
     private String species;
     private  Integer weight;
     private String colours;
-
+    
 
     public Corvid(String species, int weight, String colours){
         super();
@@ -27,6 +27,14 @@ public class Corvid {
     //  Required for this to work
     public Corvid(){
         super();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getSpecies() {
