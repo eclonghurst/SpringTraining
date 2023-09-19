@@ -10,6 +10,8 @@ public interface CorvidService {
 
     Corvid getCorvid(int id);
 
+    Corvid getCorvidBySpecies(String species);
+
     List<Corvid> getAll();
 
     Corvid updateCorvid(

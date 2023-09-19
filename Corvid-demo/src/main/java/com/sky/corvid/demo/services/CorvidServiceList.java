@@ -29,6 +29,11 @@ public class CorvidServiceList implements CorvidService {
     }
 
     @Override
+    public Corvid getCorvidBySpecies(String species) {
+        return null;
+    }
+
+    @Override
     public List<Corvid> getAll() {
         return this.corvidae;
     }

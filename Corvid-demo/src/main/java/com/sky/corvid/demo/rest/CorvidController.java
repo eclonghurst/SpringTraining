@@ -14,11 +14,10 @@ public class CorvidController {
     // @Autowired is valid here but less efficient than a constructor
     private CorvidService service;
 
-    // S
+    // Spring will automatically inject a CorvidServices when it boots
     public CorvidController(CorvidService service) {
         this.service = service;
     }
-
 
     // 'maps' this method to a GET request at /hello
     @GetMapping("/hello")
@@ -40,6 +39,11 @@ public class CorvidController {
         if (found == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         return ResponseEntity.ok(found);
+    }
+
+    @GetMapping("/getCorvid/species/{species}")
+    public Corvid getCorvidBySpecies(@PathVariable String species){
+        return this.service.getCorvidBySpecies(species);
     }
 
     @GetMapping("/getAll")
