@@ -20,7 +20,7 @@ public class CorvidController {
         return "Hello, World!";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/createCorvid")
     public ResponseEntity<Corvid> createCorvid(@RequestBody Corvid c){
         corvidae.add(c);
         Corvid created = corvidae.get(this.corvidae.size() -1); // returning the last element (to show the new corvid)
