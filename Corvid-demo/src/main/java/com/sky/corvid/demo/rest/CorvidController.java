@@ -2,19 +2,19 @@ package com.sky.corvid.demo.rest;
 
 import com.sky.corvid.demo.domain.Corvid;
 import com.sky.corvid.demo.services.CorvidService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class CorvidController {
 
+    // @Autowired is valid here but less efficient than a constructor
     private CorvidService service;
 
+    // S
     public CorvidController(CorvidService service) {
         this.service = service;
     }
@@ -65,5 +65,4 @@ public class CorvidController {
         if ("NOT FOUND".equalsIgnoreCase(result)) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         else return ResponseEntity.ok(result);
     }
-
 }
