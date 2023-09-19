@@ -15,7 +15,7 @@ public class Corvid {
     private String species;
     private  Integer weight;
     private String colours;
-    
+
 
     public Corvid(String species, int weight, String colours){
         super();
