@@ -95,11 +95,11 @@ public class CorvidIntegrationTest {
         Corvid updatedCorvid = new Corvid(1,"Magpie", 1, "Black");
         String reqBody = this.mapper.writeValueAsString(updatedCorvid);
 
-        String updateURL = "?species=" + updatedCorvid.getSpecies() + "&weight=" + updatedCorvid.getWeight() + "&colours=" + updatedCorvid.getColours();
+        String updateURL = updatedCorvid.getId() + "?species=" + updatedCorvid.getSpecies() + "&weight=" + updatedCorvid.getWeight() + "&colours=" + updatedCorvid.getColours();
 
         String resBody = this.mapper.writeValueAsString(updatedCorvid);
 
-        this.mvc.perform(MockMvcRequestBuilders.patch("/updateCorvid/1" + updateURL).content(reqBody).contentType(MediaType.APPLICATION_JSON))
+        this.mvc.perform(MockMvcRequestBuilders.patch("/updateCorvid/" + updateURL).content(reqBody).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(resBody));
     }
