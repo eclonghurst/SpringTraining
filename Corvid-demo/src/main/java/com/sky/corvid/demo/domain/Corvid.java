@@ -24,6 +24,13 @@ public class Corvid {
         this.colours = colours;
     }
 
+    public Corvid(Integer id, String species, Integer weight, String colours) {
+        this.id = id;
+        this.species = species;
+        this.weight = weight;
+        this.colours = colours;
+    }
+
     //  Required for this to work
     public Corvid(){
         super();
@@ -59,5 +66,15 @@ public class Corvid {
 
     public void setColours(String colours) {
         this.colours = colours;
+    }
+
+    @Override
+    public String toString() {
+        return "Corvid{" +
+                "id=" + id +
+                ", species='" + species + '\'' +
+                ", weight=" + weight +
+                ", colours='" + colours + '\'' +
+                '}';
     }
 }
