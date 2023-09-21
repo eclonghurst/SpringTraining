@@ -2,6 +2,7 @@ package com.sky.corvid.demo.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity // tells Spring this class is linked to a table
 public class Corvid {
@@ -86,5 +87,18 @@ public class Corvid {
                 ", weight=" + weight +
                 ", colours='" + colours + '\'' +
                 '}';
+    }
+
+    // Needed for mockito equals testing
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Corvid corvid = (Corvid) o;
+        return Objects.equals(id, corvid.id) && Objects.equals(species, corvid.species) && Objects.equals(weight, corvid.weight) && Objects.equals(colours, corvid.colours) && Objects.equals(jewelleryList, corvid.jewelleryList);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, species, weight, colours, jewelleryList);
     }
 }
