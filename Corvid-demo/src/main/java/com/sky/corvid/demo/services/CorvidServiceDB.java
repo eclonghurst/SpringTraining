@@ -1,10 +1,12 @@
 package com.sky.corvid.demo.services;
 
 import com.sky.corvid.demo.domain.Corvid;
+import com.sky.corvid.demo.dtos.CorvidDTO;
 import com.sky.corvid.demo.repo.CorvidRepo;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +36,11 @@ public class CorvidServiceDB implements CorvidService {
     }
 
     @Override
-    public List<Corvid> getAll() {
-        return this.repo.findAll();
+    public List<CorvidDTO> getAll() {
+        List<CorvidDTO> dtos = new ArrayList<>();
+        for(Corvid c : this.repo.findAll())
+            dtos.add(new CorvidDTO(c));
+        return dtos;
     }
 
     @Override

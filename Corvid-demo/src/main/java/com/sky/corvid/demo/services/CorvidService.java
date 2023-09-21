@@ -1,6 +1,7 @@
 package com.sky.corvid.demo.services;
 
 import com.sky.corvid.demo.domain.Corvid;
+import com.sky.corvid.demo.dtos.CorvidDTO;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface CorvidService {
 
     Corvid getCorvidBySpecies(String species);
 
-    List<Corvid> getAll();
+    List<CorvidDTO> getAll();
 
     Corvid updateCorvid(
             Integer id,

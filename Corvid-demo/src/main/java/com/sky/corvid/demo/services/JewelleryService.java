@@ -1,9 +1,11 @@
 package com.sky.corvid.demo.services;
 
 import com.sky.corvid.demo.domain.Jewellery;
+import com.sky.corvid.demo.dtos.JewelleryDTO;
 import com.sky.corvid.demo.repo.JewelleryRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,8 +21,11 @@ public class JewelleryService {
         return this.repo.save(j);
     }
 
-    public List<Jewellery> getAllJewellery(){
-        return this.repo.findAll();
+    public List<JewelleryDTO> getAllJewellery(){
+        List<JewelleryDTO> dtos = new ArrayList<>();
+        for(Jewellery j : this.repo.findAll())
+            dtos.add(new JewelleryDTO(j));
+        return dtos;
     }
 
     public String removeJewellery(int id) {

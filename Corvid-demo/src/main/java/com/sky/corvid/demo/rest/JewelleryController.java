@@ -1,6 +1,7 @@
 package com.sky.corvid.demo.rest;
 
 import com.sky.corvid.demo.domain.Jewellery;
+import com.sky.corvid.demo.dtos.JewelleryDTO;
 import com.sky.corvid.demo.services.JewelleryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +22,10 @@ public class JewelleryController {
     @PostMapping("/createJewellery")
     public Jewellery createJewellery(@RequestBody Jewellery j){
         return this.service.createJewellery(j);
-
     }
 
-    @GetMapping("/getAllJewellery")
-    public List<Jewellery> getAllJewellery(){
+    @GetMapping("/getJewellery")
+    public List<JewelleryDTO> getJewellery(){
         return this.service.getAllJewellery();
     }
 

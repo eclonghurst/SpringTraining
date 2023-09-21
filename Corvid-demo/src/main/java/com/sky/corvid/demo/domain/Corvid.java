@@ -1,9 +1,7 @@
 package com.sky.corvid.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity // tells Spring this class is linked to a table
 public class Corvid {
@@ -15,6 +13,10 @@ public class Corvid {
     private String species;
     private  Integer weight;
     private String colours;
+
+    //Bidirectional relationship
+    @OneToMany(mappedBy = "owner")
+    private List<Jewellery> jewelleryList;
 
 
     public Corvid(String species, int weight, String colours){
@@ -34,6 +36,14 @@ public class Corvid {
     //  Required for this to work
     public Corvid(){
         super();
+    }
+
+    public List<Jewellery> getJewellery() {
+        return jewelleryList;
+    }
+
+    public void setJewelleryList(List<Jewellery> jewelleryList) {
+        this.jewelleryList = jewelleryList;
     }
 
     public Integer getId() {

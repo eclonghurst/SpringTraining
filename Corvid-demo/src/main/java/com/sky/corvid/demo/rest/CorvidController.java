@@ -1,6 +1,7 @@
 package com.sky.corvid.demo.rest;
 
 import com.sky.corvid.demo.domain.Corvid;
+import com.sky.corvid.demo.dtos.CorvidDTO;
 import com.sky.corvid.demo.services.CorvidService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +48,7 @@ public class CorvidController {
     }
 
     @GetMapping("/getAll")
-    public List<Corvid> getAll(){
+    public List<CorvidDTO> getAll(){
         return this.service.getAll();
     }
 
